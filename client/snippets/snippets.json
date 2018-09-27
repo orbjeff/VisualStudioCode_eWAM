@@ -1,0 +1,234 @@
+{
+    /*
+	 // Place your snippets for JavaScript here. Each snippet is defined under a snippet name and has a prefix, body and 
+	 // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	 // $1, $2 for tab stops, ${id} and ${id:label} and ${1:label} for variables. Variables with the same id are connected.
+	 // Example:
+	 "Print to console": {
+		"prefix": "log",
+		"body": [
+			"console.log('$1');",
+			"$2"
+		],
+		"description": "Log output to console"
+	}
+*/
+    "if else": {
+        "prefix": "if else",
+        "body": [
+            "if ${condition}",
+            "  ${content1}",
+            "else",
+            "  ${content2}",
+            "endIf"
+        ],
+        "description": "if [condition] ... else ... endIf"
+    },
+    "if": {
+        "prefix": "if",
+        "body": [
+            "if ${condition}",
+            "  ${content}",
+            "endIf"
+        ],
+        "description": "if [condition] ... endIf"
+    },
+    "if elseif else": {
+        "prefix": "if elseif else",
+        "body": [
+            "if ${condition1}",
+            "  ${content1}",
+            "elseif ${condition2}",
+            "  ${content2}",
+            "else",
+            "  ${content3}",
+            "endIf"
+        ],
+        "description": "if [condition] ... elseif [condition] ... else ... endIf"
+    },
+    "else": {
+        "prefix": "else",
+        "body": [
+            "else",
+            "  ${content}"
+        ],
+        "description": "else ..."
+    },
+    "elseif": {
+        "prefix": "elseif",
+        "body": [
+            "elseif ${condition}",
+            "  ${content}"
+        ],
+        "description": "elseif [condition] ..."
+    },
+    "foreach": {
+        "prefix": "foreach",
+        "body": [
+            "foreach ${object} in ${list} ",
+            "  ${content}",
+            "endFor"
+        ],
+        "description": "foreach [item] in [list] ... endFor"
+    },
+    "repeat until": {
+        "prefix": "repeat until",
+        "body": [
+            "repeat",
+            "   ${content}",
+            "until ${condition}"
+        ],
+        "description": "repeat ... until [condition]"
+    },
+    "while": {
+        "prefix": "while",
+        "body": [
+            "while ${condition}",
+            "   ${content}",
+            "endWhile"
+        ],
+        "description": "while [condition] ... endWhile"
+    },
+    "refto": {
+        "prefix": "refto",
+        "body": [
+            "[model(Text:''),",
+            "   type:model(",
+            "         Text:'',", 
+            "         StillsOnFreeze:true,",
+            "         FreezeRefObject:false,",
+            "         StoreExtract:false,",
+            "         ExtractKind:FullExtract,",
+            "         ExtractParam:0,",
+            "         ExtractMaxSize:0,",
+            "         SingleRole:(",
+            "            Text:'',",
+            "            WhatCanIDo:(CanConsult:true,CanModif:true,CanCreate:true,CanSearch:true,",
+            "               CanDelete:true,CanReceive:false,NoFinal:true,PickOldVersion:false,ByPassSelection:false,",
+            "               DBRefreshOnConsult:false),",
+            "            AcceptDescendant:true,",
+            "            CreateDescendants:false,",
+            "            OnlyDescendants:false,",
+            "            InChargeOfDeletingBackRef:true,",
+            "            RoleClass:'',",
+            "            ConsultScenario:'',",
+            "            CreateScenario:'',",
+            "            ModifyScenario:'',",
+            "            PickerClass:'',",
+            "            PickerScenario:''",
+            "         ),",
+            "         MultiRole:null",
+            "      )]",
+            "${name} : RefTo [${modifiers}] ${class} inverse ${backRef} multiLang"
+        ],
+        "description": "[variable] : refto [modifiers] [class] inverse [backref]"
+    },
+    "refto Owner": {
+        "prefix": "refto owner",
+        "body": [
+            "[model(Text:'${label}')]",
+            "[type:model(SingleRole:(WhatCanIDo:(CanSearch:false),RoleClass:'aSingleRoleType'))]",
+            "${name} : RefTo [O] ${class} inverse myOwner multiLang"
+        ],
+        "description": "[variable] : refto [O] [class] inverse myOwner"
+    },
+    "refto PA": {
+        "prefix": "refto PA",
+        "body": [
+            "[model(Text:'${label}')]",
+            "[type:model(SingleRole:(WhatCanIDo:(CanModif:false,CanCreate:false),RoleClass:'aSingleRoleType'))]",
+            "${name} : RefTo [P,A] ${class} multiLang"
+        ],
+        "description": "[variable] : refto [P,A] [class] inverse [backref]"
+    },
+    "listOf": {
+        "prefix": "listOf",
+        "body": [
+            "[model(Text:'${label}')]",
+            "[type:model(SingleRole:(WhatCanIDo:(CanModif:false,CanCreate:false),RoleClass:'aSingleRoleType'))]",
+            "${name} : listOf [${modifiers}] ${class} inverse ${backref} multiLang"
+        ],
+        "description": "[variable] : listOf [modifiers] [class] inverse [backref]"
+    },
+    "listOf PA": {
+        "prefix": "listOf PA",
+        "body": [
+            "[model(Text:'${label}')]",
+            "[type:model(SingleRole:(WhatCanIDo:(CanModif:false,CanCreate:false),RoleClass:'aSingleRoleType'))]",
+            "${name} : ListOf [P,A] ${class} multiLang"
+        ],
+        "description": "[variable] : listOf [P,A] [class]"
+    },
+    "listOf Owner": {
+        "prefix": "listOf Owner",
+        "body": [
+            "[model(Text:'${label}')]",
+            "[type:model(SingleRole:(WhatCanIDo:(CanModif:false,CanCreate:false),RoleClass:'aSingleRoleType'))]",
+            "${name} : ListOf [O] ${class} multiLang"
+        ],
+        "description": "[variable] : listOf [O] [class] inverse myOwner"
+    },
+    "type enum": {
+        "prefix": "type enum",
+        "body": [
+            "type ${enumName} : (",
+            "    [model(Text:'${valuename1}')] ${value1},", 
+            "    [model(Text:'${valuename2}')] ${value2},",
+            "    [model(Text:'${valuename3}')] ${value3},", 
+            ")"
+        ],
+        "description": "type [enumName] : ( ... )"
+    },
+    "type record": {
+        "prefix": "type record",
+        "body": [
+            "type ${recordTypeName} : record",
+            "    ${field1} : ${fieldtype1}",
+            "    ${field2} : ${fieldtype2}",
+            "endRecord"
+        ],
+        "description": "type [recordName] record ... endRecord"
+    },
+    "type record override": {
+        "prefix": "type record override",
+        "body": [
+            "type ${recordTypeName} : record(${overrideRecord})",
+            "    ${field1} : ${fieldtype1}",
+            "    ${field2} : ${fieldtype2}",
+            "endRecord"
+        ],
+        "description": "type [recordName] record ... endRecord"
+    },
+    "type sequence": {
+        "prefix": "type sequence",
+        "body": [
+            "type ${sequenceTypeName} : sequence of ${sequenceItemType}"
+        ],
+        "description": "type [sequenceName] : sequence of [itemType]"
+    },
+    "procedure": {
+        "prefix": "proc",
+        "body": [
+            "procedure ${procname}(${param1} : ${paramtype1}, ${param2} : ${paramtype2}, ...)",
+            "   ${content}",
+            "endProc"
+        ],
+        "description": "procedure [procName] ( ... ) ... endProc"
+    },
+    "fucntion": {
+        "prefix": "func",
+        "body": [
+            "function ${funcname}(${param1} : ${paramtype1}, ${param2} : ${paramtype2}, ...) return ${returntype}",
+            "   ${content}",
+            "endFunc"
+        ],
+        "description": "function [funcName] ( ... ) return [returnType] ... endFunc"
+    },
+    "var": {
+        "prefix": "var",
+        "body": [
+            "var ${varName} : ${varType}"
+        ],
+        "description": "function [funcName] ( ... ) return [returnType] ... endFunc"
+    }
+}
